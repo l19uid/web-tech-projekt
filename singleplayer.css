@@ -1,0 +1,239 @@
+@font-face {
+    font-family:"Oracle";
+    src:url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Thin.woff2") format("woff2"),
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Thin.ttf") format("truetype");
+    font-weight:200;
+    font-style:normal
+}
+@font-face {
+    font-family:"Oracle";
+    src:url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Medium.woff2") format("woff2"),
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Medium.ttf") format("truetype");
+    font-weight:400;
+    font-style:normal
+}
+@font-face {
+    font-family:"Oracle";
+    src:url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBold.woff2") format("woff2"),
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBold.ttf") format("truetype");
+    font-weight:600;
+    font-style:normal
+}
+@font-face {
+    font-family:"Pulp";
+    src:url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEPulp-Bold.woff2") format("woff2"),
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEPulp-Bold.ttf") format("truetype");
+    font-weight:600;
+    font-style:normal
+}
+@font-face {
+    font-family:"Jost";
+    src:url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/Jost-400-Book.ttf") format("truetype");
+    font-weight:400;
+    font-style:normal
+}
+@font-face {
+    font-family:"Jost";
+    src:url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/Jost-500-Medium.ttf") format("truetype");
+    font-weight:500;
+    font-style:normal
+}
+@font-face {
+    font-family:"Jost";
+    src:url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/Jost-700-Bold.ttf") format("truetype");
+    font-weight:700;
+    font-style:normal
+}
+@font-face {
+    font-family:"Jost";
+    src:url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/Jost-400-BookItalic.ttf") format("truetype");
+    font-weight:400;
+    font-style:italic
+}
+
+header{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #070707;
+    color: #4d4f52;
+    height:5.25rem;
+    padding:0;
+    margin:0;
+    font-size: 16px;
+}
+
+header img {
+    height:3.25rem;
+    width:auto;
+    padding-right:2rem;
+}
+
+.introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 1080px;
+    background-image: url("images/deadlock_hub_background_blackwhite2.png");
+}
+
+.introduction h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 8rem;
+    padding-top:2rem;
+}
+
+.introduction div{
+    width: 50vw;
+    height: fit-content;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.lore
+{
+    padding-top:5rem;
+    font-size: 1.9rem;
+}
+
+.tldr{
+    padding-top:.5rem;
+    font-size: 1.7em;
+    color: rgba(247,233,213,.5);
+    font-family:Jost;
+}
+
+.introduction img{
+    padding-top:5vh;
+    width:60vw;
+    height:auto;
+}
+
+:root{
+
+}
+
+body{
+    text-shadow: 0 0 rgba(0,0,0,.25);
+    color: #f7e9d5;
+    margin:0;
+    font-family: Oracle;
+    height :500px;
+    background-color:#12070F;
+    background-image:url("images/cardboard2.png");
+    background-size: 800px;
+    background-repeat: repeat;
+}
+
+.second {
+    background-color:rgb(1,1,1);
+    height :2000px;
+    background-image:url("images/cardboard2.png");
+    background-size: 800px;
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.highlight {
+    color:black;
+    position: relative;
+    isolation: isolate;
+    padding: 0 .2em;
+}
+
+.highlight::before {
+    content: "";
+    position: absolute;
+    inset: .05em 0 -0.05em 0;
+    background-color: #dd6638;
+    transform-origin: center;
+    rotate: -1.8deg;
+    z-index: -1;
+    animation: wobble 1.5s steps(1, end) infinite;
+}
+
+@keyframes wobble {
+    0%   { rotate: -3deg; }
+    25%  { rotate: -2.25deg; }
+    50%  { rotate: -1deg; }
+    75%  { rotate: -.5deg; }
+}
+
+.highlight_two {
+    color:black;
+    position: relative;
+    isolation: isolate;
+    padding: 0 .2em;
+}
+
+.highlight_two::before {
+    content: "";
+    position: absolute;
+    inset: .05em 0 -0.05em 0;
+    background-color: #dd6638;
+    transform-origin: center;
+    rotate: -1.8deg;
+    z-index: -1;
+    animation: wobble_two 1.5s steps(1, end) infinite;
+}
+
+@keyframes wobble_two {
+    0%   { rotate: 2deg; }
+    25%  { rotate: -1deg; }
+    50%  { rotate: 1deg; }
+    75%  { rotate: 5deg; }
+}
+
+.presenting{
+    padding-top:7rem;
+    color: rgba(247,233,213,.5);
+    font-size:2rem;
+    font-weight: 700;
+}
+
+h1{
+    font-size:5rem;
+    margin-top:1rem;
+    width:60rem;
+    align-self: center;
+    text-align: center;
+    padding-bottom:20rem;
+}
+
+.card{
+    height: 500px;
+    width:800px;
+    background-image: url("images/card_alpha.png");
+    rotate: -6deg;
+    float:left;
+}
+
+.card p {
+    padding: 4rem 6rem;
+    font-size:1.5rem;
+    rotate: 6deg;
+
+}
+
+.rouge-like{
+    color:black;
+    rotate: 0deg;
+    width:fit-content;
+    font-size: 4rem;
+}
+
+.rouge-like::before {
+    content: "";
+    position: absolute;
+    inset: -0.1em -.25em -0.1em -.25em;
+    background-color: #4ecbf1;
+    transform-origin: center;
+    rotate: 1.5deg;
+    z-index: -1;
+}
+

@@ -224,8 +224,10 @@ heroes.forEach(hero => {
     heroBox.dataset.name = hero.name;
     heroBox.style.backgroundColor = hero.background;
     heroBox.innerHTML = `
-        <img src="images/heroes/cards/150px-${hero.image}_card.png" alt="${hero.name}">
-        <span>${hero.name}</span>
+        <a href="#hero-name">
+            <img src="images/heroes/cards/150px-${hero.image}_card.png" alt="${hero.name}">
+            <span>${hero.name}</span>
+        </a>
     `;
 
     // On hover mark selected and render hero

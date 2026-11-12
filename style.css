@@ -184,7 +184,6 @@ header img {
     .introduction{
         background-size: 250vw;
         height: 540px;
-        background-image: 100%;
     }
 
     .tldr {
@@ -202,7 +201,7 @@ header img {
 @media (min-width: 701px) and (max-width: 800px) {
     .introduction {
         background-size: 160vw;
-        height: 640px;
+        height:720px;
     }
 
     .introduction h1 {
@@ -486,6 +485,44 @@ footer img {
     position: absolute;
     inset: .05em 0 -0.05em 0;
     background-color: var(--color-blue);
+    transform-origin: center;
+    rotate: -1.8deg;
+    z-index: -1;
+    animation: wobble-two 1.5s steps(1, end) infinite;
+}
+
+.highlight-yellow {
+    color:black;
+    position: relative;
+    isolation: isolate;
+    padding: 0 .2em;
+    text-decoration: none;
+}
+
+.highlight-yellow::before {
+    content: "";
+    position: absolute;
+    inset: .05em 0 -0.05em 0;
+    background-color: var(--color-hidden-king);
+    transform-origin: center;
+    rotate: -1.8deg;
+    z-index: -1;
+    animation: wobble-two 1.5s steps(1, end) infinite;
+}
+
+.highlight-green {
+    color:black;
+    position: relative;
+    isolation: isolate;
+    padding: 0 .2em;
+    text-decoration: none;
+}
+
+.highlight-green::before {
+    content: "";
+    position: absolute;
+    inset: .05em 0 -0.05em 0;
+    background-color: var(--color-green);
     transform-origin: center;
     rotate: -1.8deg;
     z-index: -1;
@@ -792,7 +829,7 @@ footer img {
     }
 
     .matchmaking h1 {
-        font-size: 3.5rem;
+        font-size: 2rem;
         translate: 0 -15rem;
     }
 
@@ -1366,7 +1403,7 @@ footer img {
 
 @media only screen and (max-width: 700px) {
     .learn-text{
-        font-size: 1.1rem;
+        font-size: 1rem;
         width: 80vw;
     }
 
@@ -1383,9 +1420,10 @@ footer img {
         height: 800px;
     }
 
-    .archmother .learn-text{
-        margin-top: 25rem;
-        font-size: 1rem;
+    .archmother .learn-text,
+    .hidden-king .learn-text{
+        margin-top: 23rem;
+        font-size: 14px;
     }
 
     .hidden-king{
@@ -1393,10 +1431,6 @@ footer img {
         height: 800px;
     }
 
-    .hidden-king .learn-text{
-        margin-top: 25rem;
-        font-size: 1rem;
-    }
 
     .learn-text{
         margin-top: 0;
@@ -1554,6 +1588,11 @@ footer img {
 }
 
 @media (max-width: 700px) {
+
+    .community{
+        height: auto;
+        background-color: var(--color-dark-green);
+    }
     .community-header {
         font-size: 3rem;
     }
@@ -1634,3 +1673,170 @@ footer img {
 }
 
 /* --------------- END OF COMMUNITY --------------- */
+
+/* --------------- NOTEBOOK SCALING ISSUE / NOTEBOOK MA SCALE 150% tak tohle je fix na to --------------- */
+@media (min-width: 802px) {
+    html {
+        font-size: clamp(11px, calc(100vw / 120), 16px);
+    }
+
+    .introduction,
+    .resources,
+    .learn,
+    .community,
+    .matchmaking,
+    .hidden-king,
+    .archmother {
+        background-size: 120rem auto;
+    }
+
+    header { font-size: 1rem; }
+    .hero-box span { font-size: .8125rem; }
+
+    .introduction { height: 67.5rem; }
+    .gamemode-section { height: 256.25rem; }
+    .matchmaking { height: 75rem; }
+    .learn, .community { height: 50rem; }
+    .hidden-king, .archmother { height: 75rem; }
+}
+/* --------------- END OF NOTEBOOK SCALING ISSUE --------------- */
+
+/* --------------- LANES --------------- */
+
+.lanes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 12rem;
+
+    background-image: url("images/wood_darker.png");
+    background-position: center;
+    background-size: 800px;
+    background-repeat: repeat;
+}
+
+.lanes h1 {
+    margin: 0;
+    padding-top: 10rem;
+    font-size: 4.5rem;
+    text-align: center;
+}
+
+.lanes .learn-text {
+    margin-top: 5rem;
+}
+
+.lane-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(92rem, 94vw);
+    gap: 2rem;
+    margin-top: 8rem;
+}
+
+.lane-window {
+    position: relative;
+    rotate: 1deg;
+}
+
+.lane-window:nth-child(even) {
+    rotate: -2.5deg;
+}
+
+.lane-titlebar {
+    box-sizing: border-box;
+    width: 60%;
+    height: 5rem;
+    padding: 1rem;
+    margin-left: 26.7%;
+    translate: 0 2rem;
+    color: black;
+
+    font-family: ValvePulp, Oracle, Arial;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.lane-titlebar a {
+    margin-right: 5rem;
+}
+
+.lane-titlebar .highlight-green:before,
+.lane-titlebar .highlight-yellow:before {
+    inset: -.75rem -2rem;
+}
+
+.lane-titlebar i {
+    width: 0.9rem;
+    height: 0.9rem;
+    background: black;
+}
+
+.lane-window img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+
+    outline: var(--text-primary) solid 0.5rem;
+}
+
+.lane-window p {
+    margin: 0;
+    padding: 1rem 1.2rem 1.4rem;
+    font-family: Jost;
+    font-size: 1.4rem;
+    background-color: var(--color-dark-green);
+}
+
+@media (min-width: 801px) and (max-width: 1100px) {
+    .lane-titlebar {
+        font-size: 1.9rem;
+    }
+
+    .lane-titlebar a {
+        margin-right: 3rem;
+    }
+
+    .lane-window p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .lanes h1 {
+        padding-top: 5rem;
+        font-size: 3rem;
+    }
+
+    .lanes .learn-text {
+        margin-top: 2rem;
+    }
+
+    .lane-grid {
+        grid-template-columns: 1fr;
+        width: 85vw;
+        margin-top: 3rem;
+        gap: 3rem;
+    }
+
+    .lane-titlebar {
+        font-size: 1.6rem;
+        height: 3.5rem;
+        padding: 0.6rem;
+        width: 70%;
+        margin-left: 15%;
+        translate: 0 1.2rem;
+    }
+
+    .lane-titlebar a {
+        margin-right: 0;
+    }
+
+    .lane-window p {
+        font-size: 1rem;
+    }
+}
+/* --------------- END OF LANES --------------- */

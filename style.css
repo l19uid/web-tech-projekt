@@ -878,7 +878,7 @@ footer img {
 .rouge-like::before {
     content: "";
     position: absolute;
-    inset: -0.1em -.25em -0.1em -.25em;
+    inset: -0.1em -.2em -0.1em -.2em;
     background-color: #4ecbf1;
     transform-origin: center;
     rotate: 1.5deg;
@@ -897,6 +897,10 @@ footer img {
     z-index: 5;
 }
 
+.lane-break{
+    translate: 0 -30rem;
+}
+
 @media only screen and (max-width: 700px) {
     .page-break {
         height: 50vw;
@@ -909,6 +913,9 @@ footer img {
         height: 70%;
         background-size: 50vw;
         translate: 0 -29rem;
+    }
+    .lane-break {
+        translate: 0 -13rem;
     }
 }
 
@@ -1266,124 +1273,6 @@ footer img {
 }
 /* --------------- END OF HEROES --------------- */
 
-/* --------------- RESOURCES --------------- */
-.resources {
-    display: flex;
-    background-image: url("images/deadlock_hub_background.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 55rem;
-}
-
-.resources h1{
-    position: absolute;
-    font-size: 4rem;
-    text-align: center;
-    width: 100%;
-}
-
-.usage {
-    padding:0 3rem;
-    flex: 1;
-    min-width: 0;
-    box-sizing: border-box;
-    font-size: 1.5rem;
-    display: flex;
-
-    text-align: justify;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.usage a {
-    position: relative;
-    z-index: 0;
-    display: inline-block;
-    text-align: center;
-
-    width: 10rem;
-    height: 2.5rem;
-    margin-bottom: .5rem;
-    margin-top: .5rem;
-
-    font-size: 2rem;
-
-    text-decoration: none;
-    color: var(--text-primary);
-}
-
-.usage a::before {
-    content: "";
-    position: absolute;
-    inset: .05em 0 -0.05em 0;
-    background-color: var(--color-dark-green);
-    rotate: 1.5deg;
-    z-index: -1;
-}
-
-.usage a:hover {
-    scale: 110%;
-    color: var(--color-green);
-    rotate: -1.5deg;
-}
-
-.usage img {
-    margin-bottom: 1rem;
-
-    max-width: 100%;
-    width: auto;
-    max-height: 15rem;
-}
-
-@media (max-width: 700px) {
-    .resources {
-        flex-direction: column;
-        height: auto;
-        padding-bottom: 5rem;
-        background-size: cover;
-    }
-
-    .usage {
-        padding: 2rem 1.5rem;
-        font-size: 1rem;
-    }
-
-    .usage img {
-        max-height: 8rem;
-    }
-
-    .usage a {
-        font-size: 1.5rem;
-        width: 8rem;
-        height: 2rem;
-    }
-}
-
-/* RESOURCES */
-@media (min-width: 701px) and (max-width: 800px) {
-    .resources {
-        height: 40rem;
-    }
-
-    .usage {
-        padding: 0 1.5rem;
-        font-size: 1.2rem;
-    }
-
-    .usage a {
-        width: 8rem;
-        height: 2rem;
-        font-size: 1.6rem;
-    }
-
-    .usage img {
-        max-height: 10rem;
-    }
-}
-
-/* --------------- END OF RESOURCES --------------- */
-
 /* --------------- LEARN --------------- */
 .learn {
     display: flex;
@@ -1421,11 +1310,13 @@ footer img {
     z-index: -1;
 }
 
-.learn-text .voiceline
+.voiceline
 {
-    font-size: 1.4rem;
+    margin: 1.2rem 0;
+    padding: 0.3rem 0 0.3rem 1rem;
+    border-left: 0.3rem solid var(--hero-color, #F7E9D5);
+    font-size: 1.4em;
     font-style: italic;
-    text-align: center;
 }
 
 .learn h1 {
@@ -1557,8 +1448,7 @@ footer img {
     align-items: center;
     padding-bottom: 8rem;
     background-image: url("images/deadlock_hub_background.png");
-    background-position: center;
-    background-repeat: no-repeat;
+
     height: 800px;
 }
 
@@ -1573,6 +1463,7 @@ footer img {
     font-size: 1.6rem;
     text-align: center;
     margin: 1rem 2rem 4rem;
+    width: 75rem;
 }
 
 .community-grid {
@@ -1587,13 +1478,14 @@ footer img {
     position: relative;
     isolation: isolate;
     box-sizing: border-box;
-    width: 20rem;
-    padding: 2rem;
+    width: 40rem;
+    padding: 3rem;
     rotate: -2deg;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    min-height: 15rem;
 }
 
 .community-card::before {
@@ -1617,6 +1509,15 @@ footer img {
 .community-card p {
     font-family: Jost;
     font-size: 1.2rem;
+}
+
+.community-card img {
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+
+    max-width: 100%;
+    width: auto;
+    max-height: 15rem;
 }
 
 .community-card a {
@@ -1676,6 +1577,7 @@ footer img {
     .community-intro {
         font-size: 1.1rem;
         margin-bottom: 2rem;
+        width: 25rem;
     }
 
     .community-grid {
@@ -1772,7 +1674,9 @@ footer img {
     .introduction { height: 67.5rem; }
     .gamemode-section { height: 256.25rem; }
     .matchmaking { height: 75rem; }
-    .learn, .community { height: 50rem; }
+    .learn { height: 60rem; }
+    .community { height: 64rem; }
+    .resources { height: 90rem; }
     .hidden-king, .archmother { height: 75rem; }
 }
 /* --------------- END OF NOTEBOOK SCALING ISSUE --------------- */
@@ -1783,12 +1687,16 @@ footer img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 12rem;
+    padding-bottom: 17rem;
 
     background-image: url("images/wood_darker.png");
     background-position: center;
     background-size: 800px;
     background-repeat: repeat;
+}
+
+.deeper-info {
+    background-image: url("images/brick3_darken.png");
 }
 
 .lanes h2 {
@@ -1825,12 +1733,11 @@ footer img {
     height: 5rem;
     padding: .5rem;
     margin-left: 34.7%;
-    translate: 0 2rem;
+    translate: 0 3rem;
     color: black;
-    translate: 5% -10%;
 
     font-family: ValvePulp, Oracle, Arial;
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
     text-align: center;
     white-space: nowrap;

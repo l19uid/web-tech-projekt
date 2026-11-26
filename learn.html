@@ -6,6 +6,7 @@
     <title>Learn - Deadlock Fan Site</title>
     <link rel="icon" href="svg/logo.svg">
     <link rel="stylesheet" href="style.css">
+    <script src="map.js" defer></script>
     <meta name="keywords" content="Deadlock, Deadlock game, MOBA, third-person shooter, 6v6, multiplayer, Patrons, Cursed Apple, Maelstrom, Deadlock fan site">
     <meta name="author" content="Tomáš Vik">
 </head>
@@ -23,7 +24,7 @@
         but only when an eclipse triggered an event known as the Maelstrom near the end of the 19th century,
         which opened Astral Gates across the Earth, did the world at large accept it wasn't just myth.
         <br><br>
-        Now, 50 years later, two Patrons, the <a class="highlight" href="#hidden-king">Hidden King</a> and the <a class="highlight-blue" href="#archmother">Archmother</a>, are trying to enter this plane,
+        Now, 50 years later, two Patrons, the <a class="clickable highlight" href="#hidden-king">Hidden King</a> and the <a class="clickable highlight-blue" href="#archmother">Archmother</a>, are trying to enter this plane,
         promising to fulfill the wish of anyone that helps them by completing the ritual.
         The ritual includes two teams fighting each other in a battle in the streets of the Cursed Apple,
         trying to prevent the other team from summoning their patron.
@@ -75,6 +76,18 @@
         The Cursed Apple is split into three lanes running from one Patron's base to the other.
         Every lane is defended by Guardians and Walkers, and a steady stream of Troopers pushes along it.
         Where you fight decides where your team gets its Souls.
+    </div>
+
+    <div class="map-explorer">
+        <div class="map" id="map">
+            <img src="images/map_neutral.png" alt="Map of The Cursed Apple">
+        </div>
+
+        <div class="map-info" aria-live="polite">
+            <h3 class="map-info-name"><span class="highlight-yellow" id="map-name">Yellow Lane</span></h3>
+            <img class="map-info-img" id="map-image" src="images/map/lane_yellow.png" alt="Yellow Lane">
+            <p class="map-info-text" id="map-description">The left lane. Long and open, good for heroes who want to poke from range.</p>
+        </div>
     </div>
 
     <div class="lane-grid">
@@ -166,7 +179,7 @@
                 <h3 class="lane-titlebar"><span class="highlight-blue">Hammer Editor</span></h3>
                 <img src="images/hammer.png" alt="Map overview">
                 <p>
-                    Hammer editor is a level editor used to create maps for Source 2 games. It is a powerful tool that allows developers to create complex and detailed environments for their games. And it is also completely free to use, and is available to anyone who wants to create maps for Source 2 games, such as <a class="highlight" href="https://steamcommunity.com/id/l19uid/myworkshopfiles/">me</a>.
+                    Hammer editor is a level editor used to create maps for Source 2 games. It is a powerful tool that allows developers to create complex and detailed environments for their games. And it is also completely free to use, and is available to anyone who wants to create maps for Source 2 games, such as <a class="highlight clickable" href="https://steamcommunity.com/id/l19uid/myworkshopfiles/">me</a>.
                 </p>
             </article>
 
@@ -191,11 +204,11 @@
 </footer>
 
 <nav class="footer-nav">
-    <a href="index.html">Play</a>
-    <a href="heroes.html">Heroes</a>
-    <a class="selected" href="learn.html">Learn</a>
-    <a href="community.html">Community</a>
-    <a href="resources.html">Resources</a>
+    <a class="clickable" href="/">Play</a>
+    <a class="clickable" href="heroes.html">Heroes</a>
+    <a class="clickable selected" href="learn.html">Learn</a>
+    <a class="clickable" href="community.html">Community</a>
+    <a class="clickable" href="resources.html">Resources</a>
 </nav>
 </body>
 </html>

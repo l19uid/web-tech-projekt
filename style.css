@@ -183,7 +183,7 @@ header img {
 
 @media (max-width: 700px) {
     .introduction{
-        background-size: 250vw;
+        background-size: 270vw;
         height: 540px;
     }
 
@@ -253,6 +253,7 @@ header img {
     rotate: -2deg;
     transition: color 0.01s, transform 0.01s;
     width:fit-content;
+    --glow-color: 17, 20, 14;
 }
 
 .footer-nav a::before {
@@ -326,7 +327,7 @@ footer {
     gap: 1.5rem;
     padding: 2rem;
     background: #151515;
-    color: #3a3a3a;
+    color: #A7C2BB;
     font-size: 0.9rem;
     font-weight: bold;
     width: 100vw;
@@ -381,10 +382,11 @@ footer img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 18rem;
 }
 
 .highlight {
+    transition: color 0.01s, transform 0.01s;
+    --glow-color: 221, 102, 56;
     color:black;
     position: relative;
     isolation: isolate;
@@ -401,6 +403,43 @@ footer img {
     z-index: -1;
 }
 
+.highlight:hover {
+    scale:110%;
+}
+
+/* ---------- CLICKABLE ----------- */
+
+.clickable {
+    animation: clickable-glow 2.5s ease-in-out infinite;
+}
+
+.clickable:hover,
+.clickable:focus-visible {
+    animation-duration: 1s;
+}
+
+@keyframes clickable-glow {
+    0%, 100% {
+        filter:
+                drop-shadow(0 0 2px rgba(var(--glow-color), 0.4))
+                drop-shadow(0 0 6px rgba(var(--glow-color), 0.15));
+    }
+    50% {
+        filter:
+                drop-shadow(0 0 4px rgba(var(--glow-color), 0.8))
+                drop-shadow(0 0 14px rgba(var(--glow-color), 0.45))
+                drop-shadow(0 0 28px rgba(var(--glow-color), 0.2));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .clickable {
+        animation: none;
+        filter: drop-shadow(0 0 6px rgba(var(--glow-color), 0.5));
+    }
+}
+/* ---------- END OF CLICKABLE ----------- */
+
 @keyframes wobble {
     0%   { rotate: -3deg; }
     25%  { rotate: -2.25deg; }
@@ -409,6 +448,8 @@ footer img {
 }
 
 .highlight-two {
+    transition: color 0.01s, transform 0.01s;
+    --glow-color: 221, 102, 56;
     color:black;
     position: relative;
     isolation: isolate;
@@ -433,6 +474,8 @@ footer img {
 }
 
 .highlight-dark {
+    transition: color 0.01s, transform 0.01s;
+    --glow-color: 127, 224, 11604;
     color:var(--text-primary);
     position: relative;
     isolation: isolate;
@@ -450,6 +493,8 @@ footer img {
 }
 
 .highlight-blue {
+    transition: color 0.01s, transform 0.01s;
+    --glow-color: 56, 116, 174;
     color:var(--text-primary);
     position: relative;
     isolation: isolate;
@@ -468,6 +513,8 @@ footer img {
 }
 
 .highlight-yellow {
+    transition: color 0.01s, transform 0.01s;
+    --glow-color: 255, 172, 17;
     color:black;
     position: relative;
     isolation: isolate;
@@ -486,6 +533,8 @@ footer img {
 }
 
 .highlight-green {
+    transition: color 0.01s, transform 0.01s;
+    --glow-color: 151, 218, 121;
     color:black;
     position: relative;
     isolation: isolate;
@@ -720,36 +769,40 @@ footer img {
 
 .matchmaking a {
     grid-area: 1 / 1;
+    position: relative;
+    isolation: isolate;
 
     font-size: var(--matchmaking-font-size);
     text-transform: uppercase;
     text-decoration: none;
     font-weight: bold;
+    color: black;
 
-    color: var(--text-primary);
-
-    transform: translate(var(--x), var(--y)) rotate(var(--tilt)); /* Uses the variables from each gamemode to tilt in in each way */
-    transition: color 0.01s, transform 0.01s;
+    transform: translate(var(--x), var(--y)) rotate(var(--tilt));
+    transition: scale 0.1s;
 }
+
 .matchmaking a::before {
     content: "";
     position: absolute;
     inset: -0.1em -.25em -0.1em -.25em;
-    background-color: var(--color-dark-green);
-    transform-origin: center;
+    background-color: var(--mode-color);
     rotate: 1.5deg;
     z-index: -1;
     opacity: .9;
+    transform-origin: center;
 }
 
-.matchmaking a:hover{
-    font-size: calc(var(--matchmaking-font-size)*1.05);
-    color: var(--color-green);
-    cursor:pointer;
+.matchmaking a:hover,
+.matchmaking a:focus-visible {
+    scale: 1.1;
 }
 
 /* Some cool ass logic */
 .casual {
+    --mode-color: var(--color-orange);
+    --glow-color: 221, 102, 56;
+    color:black;
     --x: calc(var(--matchmaking-font-size)* -3.25);    /* X position */
     --y: calc(var(--matchmaking-font-size)* -1.5);   /* Y position */
     --tilt: 12deg;   /* Tilt of text */
@@ -765,6 +818,8 @@ footer img {
 }
 
 .ranked {
+    --mode-color: var(--color-blue);
+    --glow-color: 47, 203, 243;
     --x: calc(var(--matchmaking-font-size)* -3.5);
     --y: calc(var(--matchmaking-font-size)* 1);
     --tilt: -8deg;
@@ -780,10 +835,16 @@ footer img {
 }
 
 .street-brawl {
+    --mode-color: var(--color-green);
+    --glow-color: 151, 218, 121;
     --x: calc(var(--matchmaking-font-size)* 5.3);
     --y: calc(var(--matchmaking-font-size)* -.75);
     --tilt: -5deg;
 }
+
+#casual + h2 .highlight::before       { background-color: var(--color-orange); }
+#ranked + h2 .highlight::before       { background-color: var(--color-blue); }
+#street-brawl + h2 .highlight::before { background-color: var(--color-green); }
 
 .street-brawl::before{
     animation: sb_wobble 2s steps(1, end) infinite;
@@ -2056,3 +2117,97 @@ footer img {
 }
 
 /* --------------- END OF ANIMATIONS FOR EVERYTHING WITH A LINK --------------- */
+
+/* --------------- MAP EXPLORER --------------- */
+
+.map-explorer {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    width: min(25rem, 45vw);
+    margin-top: 8rem;
+    align-items: start;
+}
+
+.map {
+    position: relative;
+}
+
+.map-point {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    translate: -50% -50%;
+    width: 60px;
+    height: 60px;
+    isolation: isolate;
+
+    padding: 0 .3em;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    font-family: ValvePulp, Oracle, Arial;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: black;
+    transition: scale 0.1s;
+}
+
+map-point:hover,
+.map-point:focus-visible,
+.map-point.selected-point {
+    scale: 1.15;
+}
+
+.map-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    rotate: 1.5deg;
+}
+
+.map-info-name {
+    margin: 0;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+}
+
+.map-info-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    outline: var(--text-primary) solid 0.5rem;
+}
+
+.map-info-text {
+    margin: 0;
+    padding: 1rem 1.2rem 1.4rem;
+    font-family: Jost;
+    font-size: 1.4rem;
+    background-color: var(--color-dark-green);
+}
+
+@media (max-width: 800px) {
+    .map-explorer {
+        grid-template-columns: 1fr;
+        width: 85vw;
+        margin-top: 3rem;
+        gap: 2.5rem;
+    }
+
+    .map-point {
+        font-size: 1rem;
+    }
+
+    .map-info-name {
+        font-size: 2.2rem;
+    }
+
+    .map-info-text {
+        font-size: 1rem;
+    }
+}
+
+/* --------------- END OF MAP EXPLORER --------------- */
